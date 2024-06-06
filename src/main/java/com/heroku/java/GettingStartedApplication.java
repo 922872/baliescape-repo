@@ -50,7 +50,14 @@ public class GettingStartedApplication {
             return "error";
         }
     }
+@GetMapping("/convert")
+String convert(Map<String, Object> model) {
+    RelativisticModel.select();
+    var energy = Amount.valueOf("12 GeV");
 
+    model.put("result", "E=mc^2: " + energy + " = " + energy.to(SI.KILOGRAM));
+    return "convert";
+}
     public static void main(String[] args) {
         SpringApplication.run(GettingStartedApplication.class, args);
     }
