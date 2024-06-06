@@ -58,6 +58,19 @@ String convert(Map<String, Object> model) {
     model.put("result", "E=mc^2: " + energy + " = " + energy.to(SI.KILOGRAM));
     return "convert";
 }
+    @GetMapping("/convert")
+String convert(Map<String, Object> model) {
+    RelativisticModel.select();
+
+    final var result = java.util.Optional
+            .ofNullable(System.getenv().get("ENERGY"))
+            .map(Amount::valueOf)
+            .map(energy -> "E=mc^2: " + energy + " = " + energy.to(SI.KILOGRAM))
+            .orElse("ENERGY environment variable is not set!");
+
+    model.put("result", result);
+    return "convert";
+}
     public static void main(String[] args) {
         SpringApplication.run(GettingStartedApplication.class, args);
     }
