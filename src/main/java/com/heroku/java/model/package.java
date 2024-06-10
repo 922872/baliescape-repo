@@ -1,71 +1,50 @@
-public class PackageModel {
-    private String packID;
-    private String packName;
-    private String packActivity;
-    private String packType;
-    private double packPrice;
+package com.heroku.java.model;
 
-    // Default constructor
-    public PackageModel() {}
+public class Package {
+    private String packageID;
+    private String packageName;
+    private String packageActivity;
+    private String packageType;
+    private double packagePrice;
 
-    // Parameterized constructor
-    public PackageModel(String packID, String packName, String packActivity, String packType, double packPrice) {
-        this.packID = packID;
-        this.packName = packName;
-        this.packActivity = packActivity;
-        this.packType = packType;
-        this.packPrice = packPrice;
+    // Getters and Setters
+    public String getPackageID() {
+        return packageID;
     }
 
-    // Getter and Setter methods
-    public String getPackID() {
-        return packID;
+    public void setPackageID(String packageID) {
+        this.packageID = packageID;
     }
 
-    public void setPackID(String packID) {
-        this.packID = packID;
+    public String getPackageName() {
+        return packageName;
     }
 
-    public String getPackName() {
-        return packName;
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
-    public void setPackName(String packName) {
-        this.packName = packName;
+    public String getPackageActivity() {
+        return packageActivity;
     }
 
-    public String getPackActivity() {
-        return packActivity;
+    public void setPackageActivity(String packageActivity) {
+        this.packageActivity = packageActivity;
     }
 
-    public void setPackActivity(String packActivity) {
-        this.packActivity = packActivity;
+    public String getPackageType() {
+        return packageType;
     }
 
-    public String getPackType() {
-        return packType;
+    public void setPackageType(String packageType) {
+        this.packageType = packageType;
     }
 
-    public void setPackType(String packType) {
-        this.packType = packType;
+    public double getPackagePrice() {
+        return packagePrice;
     }
 
-    public double getPackPrice() {
-        return packPrice;
-    }
-
-    public void setPackPrice(double packPrice) {
-        this.packPrice = packPrice;
-    }
-
-    @Override
-    public String toString() {
-        return "PackageModel{" +
-                "packID='" + packID + '\'' +
-                ", packName='" + packName + '\'' +
-                ", packActivity='" + packActivity + '\'' +
-                ", packType='" + packType + '\'' +
-                ", packPrice=" + packPrice +
-                '}';
+    public void setPackagePrice(double packagePrice) {
+        this.packagePrice = packagePrice;
     }
 }
