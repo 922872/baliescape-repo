@@ -29,6 +29,11 @@ public class GettingStartedApplication {
         return "index";
     }
 
+    @GetMapping("/CreatePack")
+    public String CreatePack(){
+        return "CreatePack";
+    }
+    
     @GetMapping("/database")
     String database(Map<String, Object> model) {
         try (Connection connection = dataSource.getConnection()) {
