@@ -33,7 +33,10 @@ public class GettingStartedApplication {
     public String CreatePack(){
         return "CreatePack";
     }
-    
+    @GetMapping("/ViewPack")
+    public String ViewPack(){
+        return "ViewPack";
+    }
     @GetMapping("/database")
     String database(Map<String, Object> model) {
         try (Connection connection = dataSource.getConnection()) {
