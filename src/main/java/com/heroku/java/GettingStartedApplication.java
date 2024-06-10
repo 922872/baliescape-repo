@@ -37,6 +37,12 @@ public class GettingStartedApplication {
     public String ViewPack(){
         return "ViewPack";
     }
+
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
     @GetMapping("/database")
     String database(Map<String, Object> model) {
         try (Connection connection = dataSource.getConnection()) {
