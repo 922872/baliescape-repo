@@ -66,7 +66,7 @@ public class PackageController {
      
              try {
                  Connection connection = dataSource.getConnection();
-                 String sql = "UPDATE INTO public.package(packid, packname, packactivity, packtype, packprice) VALUES(?,?,?,?,?)";
+                 String sql = "UPDATE public.package(packid, packname, packactivity, packtype, packprice) VALUES(?,?,?,?,?)";
                  final var statement = connection.prepareStatement(sql);
      
                  Integer packID= packages.getPackID();
