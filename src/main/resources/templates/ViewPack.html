@@ -98,6 +98,17 @@
         .card {
             width: 18rem;
         }
+
+        /* Custom styles for centering the buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-buttons a {
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -158,20 +169,16 @@
                     </div>
                     <div class="mt-3 d-flex justify-content-between">
                         <a href="#" class="btn btn-primary">Activity</a>
-                        <a href="CreatePack.html">
-                            <button type="button">Create</button>
-                        </a>
-                        <a href="UpdatePack.html">
-                            <button type="button">Update</button>
-                        </a>
-                        <a href="DeletePack.html">
-                            <button type="button">Delete</button>
-                        </a>
-                        
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
+        <!-- Action Buttons Below Container -->
+        <div class="action-buttons">
+            <a href="CreatePack.html" class="btn btn-primary">Create</a>
+            <a href="UpdatePack.html" class="btn btn-primary">Update</a>
+            <a href="DeletePack.html" class="btn btn-primary">Delete</a>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
