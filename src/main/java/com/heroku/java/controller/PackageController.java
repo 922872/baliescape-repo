@@ -23,12 +23,12 @@ public class PackageController {
    
 
    @PostMapping("/CreatePack")
-    public String addTicket(@ModelAttribute("package")package package ){
+    public String createPack(@ModelAttribute("package")package package ){
        
 
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO public.package(packID, packName, packActivity, packType, packPrice) VALUES(?,?)";
+            String sql = "INSERT INTO public.package(packID, packName, packActivity, packType, packPrice) VALUES(?,?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
 
             Integer packID= package.getPackID();
@@ -38,8 +38,11 @@ public class PackageController {
             double packagePrice = package.getPacktPrice();
             
             
-            statement.setString(1, tickettype);
-            statement.setDouble(2, ticketprice);
+            statement.setInt(1, packID);
+            statement.setString(2, packName);
+            statement.setString(3, packActivity);
+            statement.setString(4, packType);
+            statement.setDouble(5, packPrice);
            
             statement.executeUpdate();
             
