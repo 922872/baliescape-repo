@@ -28,7 +28,10 @@ public class GettingStartedApplication {
     public String index() {
         return "index";
     }
-
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
     @GetMapping("/CreatePack")
     public String CreatePack(){
         return "CreatePack";
@@ -37,10 +40,13 @@ public class GettingStartedApplication {
     public String ViewPack(){
         return "ViewPack";
     }
-
-    @GetMapping("/home")
-    public String home(){
-        return "home";
+    @GetMapping("/UpdatePack")
+    public String UpdatePack(){
+        return "UpdatePack";
+    }
+    @GetMapping("/DeletePack")
+    public String DeletePack(){
+        return "DeletePack";
     }
 
     @GetMapping("/database")
