@@ -26,12 +26,9 @@ public class GettingStartedApplication {
 
     @GetMapping("/")
     public String index() {
-        return "index";
-    }
-    @GetMapping("/home")
-    public String home(){
         return "home";
     }
+    
     @GetMapping("/CreatePack")
     public String CreatePack(){
         return "CreatePack";
