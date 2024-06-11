@@ -74,7 +74,10 @@
 <body>
     <div class="container">
         <h1>Update Baliescape's Package</h1>
-        <form action="CreatePackServlet" method="post">
+        <form th:action="@{/UpdatePack}"
+        modelAttribute="package"
+        th:object="(${package})"
+        method="post" >
             <label for="packID">Package ID:</label>
             <input type="text" id="packID" name="packID" required><br>
 
@@ -94,7 +97,7 @@
             <label for="packPrice">Package Price:</label>
             <input type="text" id="packPrice" name="packPrice" required><br>
 
-            <button type="update">Update</button>
+            <button type="submit">Update</button>
             <button type="reset">Reset</button>
         </form>
     </div>

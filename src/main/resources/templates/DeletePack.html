@@ -74,7 +74,10 @@
 <body>
     <div class="container">
         <h1>Deletion Baliescape's Package</h1>
-        <form action="CreatePackServlet" method="post">
+        <form th:action="@{/DeletePack}"
+        modelAttribute="package"
+        th:object="(${package})"
+        method="post" >
             <label for="packID">Package ID:</label>
             <input type="text" id="packID" name="packID" required><br>
 
@@ -94,7 +97,7 @@
             <label for="packPrice">Package Price:</label>
             <input type="text" id="packPrice" name="packPrice" required><br>
 
-            <button type="delete">Delete</button>
+            <button type="submit">Delete</button>
             <button type="cancel">Cancel</button>
         </form>
     </div>

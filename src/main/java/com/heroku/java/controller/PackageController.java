@@ -59,5 +59,43 @@ public class PackageController {
             return "redirect:/ViewPack";
          }
 
-        
+
+         @PostMapping("/UpdatePack")
+         public String updatePack(@ModelAttribute("package")PackageModel packages ){
+            
+     
+             try {
+                 Connection connection = dataSource.getConnection();
+                 String sql = "UPDATE INTO public.package(packid, packname, packactivity, packtype, packprice) VALUES(?,?,?,?,?)";
+                 final var statement = connection.prepareStatement(sql);
+     
+                 Integer packID= packages.getPackID();
+                 String packName= packages.getPackName();
+                 String packActivity= packages.getPackActivity();
+                 String packType= packages.getPackType();
+                 double packPrice = packages.getPackPrice();
+                 
+                 
+                 statement.setInt(1, packID);
+                 statement.setString(2, packName);
+                 statement.setString(3, packActivity);
+                 statement.setString(4, packType);
+                 statement.setDouble(5, packPrice);
+                
+                 statement.executeUpdate();
+                 
+                 connection.close();
+                     
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                 
+                       
+                         return "redirect:/error";
+                     }
+            
+                      
+                 return "redirect:/ViewPack";
+              }
+     
+    
 }
