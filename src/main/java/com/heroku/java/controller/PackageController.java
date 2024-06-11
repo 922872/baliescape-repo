@@ -24,7 +24,7 @@ public class PackageController {
     public String createPack(@ModelAttribute("package") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO public.package(packid, packname, packactivity, packtype,packprice) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO public.package(packid, packname, packactivity, packtype, packprice) VALUES(?,?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
     
             Integer packID = packages.getPackID();
@@ -33,11 +33,11 @@ public class PackageController {
             String packType = packages.getPackType();
             double packPrice = packages.getPackPrice();
     
-            statement.setString(1, packName);
-            statement.setString(2, packActivity);
-            statement.setString(3, packType);
-            statement.setDouble(4, packPrice);
-            statement.setInt(5, packID);
+            statement.setInt(1, packID);
+            statement.setString(2, packName);
+            statement.setString(3, packActivity);
+            statement.setString(4, packType);
+            statement.setDouble(5, packPrice);
     
             statement.executeUpdate();
             connection.close();
