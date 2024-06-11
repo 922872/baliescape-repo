@@ -54,20 +54,20 @@ public class PackageController {
     public String updatePack(@ModelAttribute("package") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "UPDATE public.package SET packname = ?, packactivity = ?, packtype = ?, packprice = ? WHERE packid = ?";
+            String sql = "UPDATE public.package SET  packactivity = ?, packtype = ?, packprice = ? WHERE packid = ?";
             final var statement = connection.prepareStatement(sql);
     
             Integer packID = packages.getPackID();
-            String packName = packages.getPackName();
+    
             String packActivity = packages.getPackActivity();
             String packType = packages.getPackType();
             double packPrice = packages.getPackPrice();
     
-            statement.setString(1, packName);
-            statement.setString(2, packActivity);
-            statement.setString(3, packType);
-            statement.setDouble(4, packPrice);
-            statement.setInt(5, packID);
+    
+            statement.setString(1, packActivity);
+            statement.setString(2, packType);
+            statement.setDouble(3, packPrice);
+            statement.setInt(4, packID);
     
             statement.executeUpdate();
             connection.close();
