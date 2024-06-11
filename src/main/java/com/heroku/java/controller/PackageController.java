@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.heroku.java.model.PackageModel;
 
@@ -51,5 +51,24 @@ public class PackageController {
         return "redirect:/ViewPack";
     }
      
+
+    @PostMapping("/DeletePack")
+    public String deletePack(@RequestParam("packID") Integer packID) {
+       try {
+        Connection connection = dataSource.getConnection();
+        String sql = "DELETE FROM public.package WHERE packid = ?";
+        final var statement = connection.prepareStatement(sql);
+
+        statement.setInt(1, packID);
+
+        statement.executeUpdate();
+        connection.close();
+      } catch (Exception e) {
+        e.printStackTrace();
+        return "redirect:/error";
+      }
+
+     return "redirect:/ViewPack";
+  }
     
 }
