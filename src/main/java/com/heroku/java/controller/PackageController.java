@@ -20,7 +20,35 @@ public class PackageController {
         this.dataSource = dataSource;
     }
 
-   
+    @PostMapping("/CreatePack")
+    public String createPack(@ModelAttribute("package") PackageModel packages) {
+        try {
+            Connection connection = dataSource.getConnection();
+            String sql = "INSERT INTO public.package(packid, packname, packactivity, packtype,packprice) VALUES(?,?,?,?,?)";
+            final var statement = connection.prepareStatement(sql);
+    
+            Integer packID = packages.getPackID();
+            String packName = packages.getPackName();
+            String packActivity = packages.getPackActivity();
+            String packType = packages.getPackType();
+            double packPrice = packages.getPackPrice();
+    
+            statement.setString(1, packName);
+            statement.setString(2, packActivity);
+            statement.setString(3, packType);
+            statement.setDouble(4, packPrice);
+            statement.setInt(5, packID);
+    
+            statement.executeUpdate();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/error";
+        }
+    
+        return "redirect:/ViewPack";
+    }
+     
 
     @PostMapping("/UpdatePack")
     public String updatePack(@ModelAttribute("package") PackageModel packages) {
