@@ -5,14 +5,12 @@ import java.sql.Date;
 public class package {
     private Integer packID;
     private String packName;
+    private String packActivity;
     private String packType;
     private double packPrice;
 
-    public package(Integer packID, String packName, String packType, double packPrice) {
-        this.packID = packID;
-        this.packName = packName;
-        this.packType = packType;
-        this.packPrice = packPrice;
+    public package() {
+
     }
 
     public Integer getPackID() {
@@ -29,6 +27,10 @@ public class package {
 
     public void setPackName(String packName) {
         this.packName = packName;
+    }
+
+    public void setPackActivity(String packActivity) {
+        this.packActivity = packActivity;
     }
 
     public String getPackType() {
