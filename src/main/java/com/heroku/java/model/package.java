@@ -2,14 +2,14 @@ package com.heroku.java.model;
 
 import java.sql.Date;
 
-public class package {
+public class PackageModel {
     private Integer packID;
     private String packName;
     private String packActivity;
     private String packType;
     private double packPrice;
 
-    public package() {
+    public PackageModel() {
 
     }
 
@@ -27,6 +27,10 @@ public class package {
 
     public void setPackName(String packName) {
         this.packName = packName;
+    }
+
+    public String getPackActivity() {
+        return packActivity;
     }
 
     public void setPackActivity(String packActivity) {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-import com.heroku.java.model.package;
+import com.heroku.java.model.PackageModel;
 
 @Controller
 public class PackageController {
@@ -23,7 +23,7 @@ public class PackageController {
    
 
    @PostMapping("/CreatePack")
-    public String createPack(@ModelAttribute("package")package package ){
+    public String createPack(@ModelAttribute("package")PackageModel packages ){
        
 
         try {
@@ -31,11 +31,11 @@ public class PackageController {
             String sql = "INSERT INTO public.package(packID, packName, packActivity, packType, packPrice) VALUES(?,?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
 
-            Integer packID= package.getPackID();
-            String packName= package.getPackName();
-            String packActivity= package.getPackActivity();
-            String packType= package.getPackType();
-            double packagePrice = package.getPacktPrice();
+            Integer packID= packages.getPackID();
+            String packName= packages.getPackName();
+            String packActivity= packages.getPackActivity();
+            String packType= packages.getPackType();
+            double packPrice = packages.getPackPrice();
             
             
             statement.setInt(1, packID);
