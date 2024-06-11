@@ -56,7 +56,7 @@ public class PackageController {
                 }
        
                  
-            return "redirect:/index";
+            return "redirect:/ViewPack";
          }
 
         
