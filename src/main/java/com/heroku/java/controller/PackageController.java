@@ -28,7 +28,7 @@ public class PackageController {
 
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO public.package(packID, packName, packActivity, packType, packPrice) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO public.package(packic, packname, packactivity, packtype, packprice) VALUES(?,?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
 
             Integer packID= packages.getPackID();
