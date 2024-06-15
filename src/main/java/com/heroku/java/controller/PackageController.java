@@ -20,8 +20,8 @@ public class PackageController {
         this.dataSource = dataSource;
     }
 
-    @PostMapping("/staffPack")
-    public String staffPack(@ModelAttribute("package") PackageModel packages) {
+    @PostMapping("/CreatePack")
+    public String createPack(@ModelAttribute("package") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
             String sql = "INSERT INTO public.package(packid, packname, packactivity, packprice) VALUES(?,?,?,?)";
@@ -45,11 +45,11 @@ public class PackageController {
             return "redirect:/error";
         }
     
-        return "redirect:/staffPack";
+        return "redirect:/CreatePack";
     }
      
 
-    @PostMapping("/staffUpdatePack")
+    @PostMapping("/UpdatePack")
     public String updatePack(@ModelAttribute("package") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
@@ -73,11 +73,11 @@ public class PackageController {
             return "redirect:/error";
         }
     
-        return "redirect:/staffPack";
+        return "redirect:/CreatePack";
     }
      
 
-    @PostMapping("/staffDeletePack")
+    @PostMapping("/DeletePack")
     public String deletePack(@RequestParam("packID") Integer packID) {
        try {
         Connection connection = dataSource.getConnection();
@@ -93,7 +93,7 @@ public class PackageController {
         return "redirect:/error";
       }
 
-     return "redirect:/staffPack";
+     return "redirect:/CreatePack";
   }
     
 }
