@@ -20,23 +20,21 @@ public class PackageController {
         this.dataSource = dataSource;
     }
 
-    @PostMapping("/CreatePack")
+    @PostMapping("/staffPack")
     public String createPack(@ModelAttribute("package") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO public.package(packid, packname, packactivity, packtype, packprice) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO public.package(packid, packname, packactivity, packprice) VALUES(?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
     
             Integer packID = packages.getPackID();
             String packName = packages.getPackName();
             String packActivity = packages.getPackActivity();
-            String packType = packages.getPackType();
             double packPrice = packages.getPackPrice();
     
             statement.setInt(1, packID);
             statement.setString(2, packName);
             statement.setString(3, packActivity);
-            statement.setString(4, packType);
             statement.setDouble(5, packPrice);
 
     
@@ -47,26 +45,24 @@ public class PackageController {
             return "redirect:/error";
         }
     
-        return "redirect:/ViewPack";
+        return "redirect:/staffPack";
     }
      
 
-    @PostMapping("/UpdatePack")
+    @PostMapping("/staffUpdatePack")
     public String updatePack(@ModelAttribute("package") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "UPDATE public.package SET packname = ?, packactivity = ?, packtype = ?, packprice = ? WHERE packid = ?";
+            String sql = "UPDATE public.package SET packname = ?, packactivity = ?, packprice = ? WHERE packid = ?";
             final var statement = connection.prepareStatement(sql);
     
             Integer packID = packages.getPackID();
             String packName = packages.getPackName();
             String packActivity = packages.getPackActivity();
-            String packType = packages.getPackType();
             double packPrice = packages.getPackPrice();
     
             statement.setString(1, packName);
             statement.setString(2, packActivity);
-            statement.setString(3, packType);
             statement.setDouble(4, packPrice);
             statement.setInt(5, packID);
     
@@ -77,11 +73,11 @@ public class PackageController {
             return "redirect:/error";
         }
     
-        return "redirect:/ViewPack";
+        return "redirect:/staffPack";
     }
      
 
-    @PostMapping("/DeletePack")
+    @PostMapping("/staffDeletePack")
     public String deletePack(@RequestParam("packID") Integer packID) {
        try {
         Connection connection = dataSource.getConnection();
@@ -97,7 +93,7 @@ public class PackageController {
         return "redirect:/error";
       }
 
-     return "redirect:/ViewPack";
+     return "redirect:/staffPack";
   }
     
 }

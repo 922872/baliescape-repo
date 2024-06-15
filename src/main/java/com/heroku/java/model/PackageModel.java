@@ -6,7 +6,6 @@ public class PackageModel {
     private Integer packID;
     private String packName;
     private String packActivity;
-    private String packType;
     private double packPrice;
 
     public PackageModel() {
@@ -35,14 +34,6 @@ public class PackageModel {
 
     public void setPackActivity(String packActivity) {
         this.packActivity = packActivity;
-    }
-
-    public String getPackType() {
-        return packType;
-    }
-
-    public void setPackType(String packType) {
-        this.packType = packType;
     }
 
     public double getPackPrice() {
