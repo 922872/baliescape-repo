@@ -99,26 +99,17 @@
             width: 18rem;
         }
 
-        /* Custom styles for centering the buttons */
         .action-buttons {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            color: white;
         }
 
         .action-buttons a {
             margin: 0 5px;
         }
 
-        .container-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .container-buttons a {
-            margin: 0 10px;
-        }
     </style>
 </head>
 <body>
@@ -149,12 +140,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Honeymoon</h5>
                         <h6 class="category">Romancing and roaming</h6>
-                        <h6 class="price">Starts from RM89.00</h6>
                     </div>
                     <div class="mt-3 d-flex justify-content-between">
                         <div class="action-buttons">
-                            <a th:href="@{/UpdatePack}" class="btn btn-primary">Update</a>
-                            <a th:href="@{/DeletePack}"class="btn btn-primary">Delete</a>
+                            <a th:href="@{/HoneymoonPack}" class="btn btn-primary">View Activity</a>
                         </div>
                         
                     </div>
@@ -166,12 +155,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Adventure</h5>
                         <h6 class="category">Step outside your comfort zone</h6>
-                        <h6 class="price">Starts from RM102.00</h6>
                     </div>
                     <div class="mt-3 d-flex justify-content-between">
                         <div class="action-buttons">
-                            <a th:href="@{/UpdatePack}" class="btn btn-primary">Update</a>
-                            <a th:href="@{/DeletePack}"class="btn btn-primary">Delete</a>
+                            <a th:href="@{/AdventurePack}" class="btn btn-primary">View Activity</a>
                         </div>
                         
                     </div>
@@ -179,16 +166,14 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top" src="img/Group.jpg" alt="Group Image">
+                    <img class="card-img-top" src="img/group.jpg" alt="Group Image">
                     <div class="card-body">
                         <h5 class="card-title">Group</h5>
                         <h6 class="category">Relax and let loose</h6>
-                        <h6 class="price">Starts from RM119.00</h6>
                     </div>
                     <div class="mt-3 d-flex justify-content-between">
                         <div class="action-buttons">
-                            <a th:href="@{/UpdatePack}" class="btn btn-primary">Update</a>
-                            <a th:href="@{/DeletePack}"class="btn btn-primary">Delete</a>
+                            <a th:href="@{/GroupPack}" class="btn btn-primary">View Activity</a>
                         </div>
                         
                     </div>
@@ -196,10 +181,8 @@
             </div>
         </div>
     </div>
-    <div class="container-buttons">
-        <a th:href="@{/CreatePack}" class="btn btn-primary">Create</a>
-    </div>
 </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
