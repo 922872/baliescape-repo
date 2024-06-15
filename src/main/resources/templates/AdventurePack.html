@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Adventure Package</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            height: 80px; 
+            padding: 20px; 
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ddd;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 15px; 
+        } 
+
+        .heading{
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .heading h1{
+            font-size: 30px;
+            color: #000;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .heading h1::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            display: block;
+            margin: 0 auto;
+            background-color: #4caf50;
+        }
+
+        .heading p{
+            font-size: 15px;
+            color: black;
+            margin-bottom: 35px;
+        }
+
+        .container{
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+
+        .adventure{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+       .adventure-image{
+        flex: 1;
+        margin-right: 40px;
+        overflow: hidden;
+       }
+
+       .adventure-image img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: 0.5 ease;
+       }
+
+       .adventure-content{
+        flex: 1;
+       }
+
+       .adventure-content h2{
+        font-size: 23px;
+        margin-bottom: 15px;
+        color: #000;
+       }
+
+       .adventure-content p{
+        font-size: 14px;
+        line-height: 1.5;
+        color: #666;
+       }
+
+       .adventure-content .book-now{
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 19px;
+        text-decoration: none;
+        border-radius: 25px;
+        margin-top: 15px;
+        transition: 0.3s ease;
+       }
+
+       .adventure-content .book-now:hover{
+        background-color: #3e8e41;
+       }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href=" ">The Baliescape's</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="About.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Package.html">Package</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="heading">
+    <h1>Adventure</h1>
+    <p>A honeymoon is a romantic getaway for newlyweds, often marked by luxury and seclusion. Couples seek picturesque destinations, intimate experiences, and memorable adventures, blending relaxation with exploration. It's a time to celebrate love, deepen bonds, and create lasting memories in beautiful, often exotic locales.</p>
+</div>
+
+<div class="container">
+    <section class="adventure">
+        <div class="adventure-image">
+            <img src="img/adv.jpg ">
+        </div>
+        <div class="adventure-content">
+          <h2>Adventure Activity</h2>
+          <p>- Private Beach Dinners</p>
+          <p>- Spa Treatments</p>
+          <p>- Sunset Cruises</p>
+          <p>- Helicopter Tours</p>
+          <p>- Hot Air Balloon Rides</p>
+          <p>- Horseback Riding</p>
+          <a href=" " class="book-now">Book now</a>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
