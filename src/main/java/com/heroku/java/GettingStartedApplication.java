@@ -33,10 +33,7 @@ public class GettingStartedApplication {
     public String CreatePack(){
         return "CreatePack";
     }
-    @GetMapping("/ViewPack")
-    public String ViewPack(){
-        return "ViewPack";
-    }
+    
     @GetMapping("/UpdatePack")
     public String UpdatePack(){
         return "UpdatePack";
