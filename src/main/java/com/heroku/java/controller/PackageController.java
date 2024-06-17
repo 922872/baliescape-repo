@@ -35,7 +35,7 @@ public class PackageController {
             statement.setInt(1, packID);
             statement.setString(2, packName);
             statement.setString(3, packActivity);
-            statement.setDouble(5, packPrice);
+            statement.setDouble(4, packPrice);
 
     
             statement.executeUpdate();
@@ -63,8 +63,8 @@ public class PackageController {
     
             statement.setString(1, packName);
             statement.setString(2, packActivity);
-            statement.setDouble(4, packPrice);
-            statement.setInt(5, packID);
+            statement.setDouble(3, packPrice);
+            statement.setInt(4, packID);
     
             statement.executeUpdate();
             connection.close();
