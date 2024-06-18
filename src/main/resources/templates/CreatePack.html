@@ -159,6 +159,24 @@
                         <td>Action</td>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr th:each="package : ${packages}">
+                        <td th:text="${package.packID}"></td>
+                        <td th:text="${package.packName}"></td>
+                        <td th:text="${package.packActivity}"></td>
+                        <td th:text="${package.packPrice}"></td>
+                        <td>
+                        <a th:href="@{/updatePackages?packID=}+${package.packID}" th:value="${package.packID}">
+                            <button class="update-button">Edit</button>
+                        </a>
+                        <a th:href="@{/deletePackages?packID=}+${package.packID}" class ="deletePackageButton">
+                            <button class="delete-button">Delete</button>
+                        </a>
+    
+                        </td>
+                    </tr>
+                </tbody>
+    
             </table>
         </div>
     </div>
