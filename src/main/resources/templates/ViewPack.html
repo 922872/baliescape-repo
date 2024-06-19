@@ -131,28 +131,39 @@
         </div>
     </nav>
     
-    <div class="container">
-        <div class="staff-form-container">
-            <form th:action="@{/CreatePack}" modelAttribute="package" th:object="(${package})" method="post">
-                <h1>Create Baliescape's Package</h1>
-                <label for="packID">Package ID:</label>
-                <input type="text" name="packID" class="box"><br>
-                <label for="packName">Package Name:</label>
-                <input type="text" name="packName" class="box"><br>
-                <label for="packActivity">Package Activity:</label>
-                <input type="text" name="packActivity" class="box"><br>
-                <label for="packPrice">Package Price:</label>
-                <input type="text" name="packPrice" class="box"><br>
-                <input type="submit" class="btn" name="create" value="Create">
-                <input type="reset" class="btn" name="reset" value="Reset">
-            </form>
-        </div>
 
-        
+        <div class="package-display">
+            <table class="package-display-table">
+                <thead>
+                    <tr>
+                        <td>Package ID</td>
+                        <td>Package Name</td>
+                        <td>Package Activity</td>
+                        <td>Package Price</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="PackageModel : ${packages}">
+                        <td th:text="${PackageModel.packID}"></td>
+                        <td th:text="${PackageModel.packName}"></td>
+                        <td th:text="${PackageModel.packActivity}"></td>
+                        <td th:text="${PackageModel.packPrice}"></td>
+                        <td>
+                        <a th:href="@{/updatePackages?packID=}+${package.packID}" th:value="${package.packID}">
+                            <button class="update-button">Edit</button>
+                        </a>
+                        <a th:href="@{/deletePackages?packID=}+${package.packID}" class ="deletePackageButton">
+                            <button class="delete-button">Delete</button>
+                        </a>
+    
+                        </td>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
     </div>
 
 </body>
 </html>
-
-
-
