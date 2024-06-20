@@ -58,7 +58,7 @@
         <form th:action="@{/CreatePack}" modelAttribute="package" method="post">
             <h1>Create Baliescape's Package</h1>
             <label for="packID">Package ID:</label>
-            <input type="text" th:field="*{packID}" class="form-control"><br>
+            <input type="number" th:field="*{packID}" class="form-control"><br>
             <label for="packName">Package Name:</label>
             <input type="text" th:field="*{packName}" class="form-control"><br>
             <label for="packActivity">Package Activity:</label>
