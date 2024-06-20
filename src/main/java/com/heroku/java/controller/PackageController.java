@@ -28,31 +28,23 @@ public class PackageController {
    
     @PostMapping("/CreatePack")
 public String createPack(@ModelAttribute("package") PackageModel packages) {
-    try {
-        Connection connection = dataSource.getConnection();
-        String sql = "INSERT INTO public.package(packid, packname, packactivity, packprice) VALUES(?,?,?,?)";
-        final var statement = connection.prepareStatement(sql);
+    String sql = "INSERT INTO public.package(packid, packname, packactivity, packprice) VALUES(?,?,?,?)";
+    try (Connection connection = dataSource.getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql)) {
 
-        Integer packID = packages.getPackID();
-        String packName = packages.getPackName();
-        String packActivity = packages.getPackActivity();
-        double packPrice = packages.getPackPrice();
-
-        statement.setInt(1, packID);
-        statement.setString(2, packName);
-        statement.setString(3, packActivity);
-        statement.setDouble(4, packPrice);
-
+        statement.setInt(1, packages.getPackID());
+        statement.setString(2, packages.getPackName());
+        statement.setString(3, packages.getPackActivity());
+        statement.setDouble(4, packages.getPackPrice());
 
         statement.executeUpdate();
-        connection.close();
-    } catch (Exception e) {
+    } catch (SQLException e) {
         e.printStackTrace();
         return "redirect:/error";
     }
-
     return "redirect:/CreatePack";
 }
+
      
     @GetMapping("/packageList")
     public String packageList(Model model) {
