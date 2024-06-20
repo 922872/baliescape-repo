@@ -69,7 +69,7 @@ public class PackageController {
             e.printStackTrace();
             return "error";
         }
-        return "packageList";
+        return "ViewPack";
     }
 
     @PostMapping("/UpdatePack")
