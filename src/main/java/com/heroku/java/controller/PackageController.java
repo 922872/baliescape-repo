@@ -27,7 +27,7 @@ public class PackageController {
     }
    
     @PostMapping("/CreatePack")
-    public String createPack(@ModelAttribute("package") PackageModel packages) {
+    public String createPack(@ModelAttribute("packages") PackageModel packages) {
         try {
             Connection connection = dataSource.getConnection();
             String sql = "INSERT INTO public.package(packid, packname, packactivity, packprice) VALUES(?,?,?,?)";
