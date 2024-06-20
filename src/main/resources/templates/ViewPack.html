@@ -107,7 +107,7 @@
                         <td th:text="${PackageModel.packActivity}"></td>
                         <td th:text="${PackageModel.packPrice}"></td>
                         <td>
-                        <a th:href="@{/updatePackages?packID=}+${PackageModel.packID}" th:value="${packages.packID}">
+                        <a th:href="@{/updatePackages?packID=}+${PackageModel.packID}" th:value="${PackageModel.packID}">
                             <button class="update-button">Edit</button>
                         </a>
                         <a th:href="@{/deletePackages?packID=}+${PackageModel.packID}" class ="deletePackageButton">
