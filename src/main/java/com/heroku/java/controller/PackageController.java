@@ -25,11 +25,7 @@ public class PackageController {
     public PackageController(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-    @GetMapping("/CreatePack")
-    public String showCreatePackForm(Model model) {
-        model.addAttribute("package", new PackageModel());
-        return "createPack"; // This should match the name of your HTML template without the .html extension
-    }
+   
     @PostMapping("/CreatePack")
     public String createPack(@ModelAttribute("package") PackageModel packages) {
         try {
