@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Baliescape's Packages</title>
+    <title>View Baliescape's Package</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        /* Same styling as CreatePack for consistency */
+        @charset "ISO-8859-1";
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-        html {
+        html{
             font-size: 50%;
             overflow-x: hidden;
         }
@@ -39,76 +39,34 @@
         }
 
         .navbar-nav .nav-item {
-            margin-right: 15px;
+            margin-right: 15px; 
+        } 
+
+        .package-display{
+            margin: 2rem 0;
         }
 
-        .container {
-            max-width: 1200px;
-            padding: 2rem;
-            margin: 0 auto;
-        }
-
-        .btn {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-size: 12px;
-        }
-
-        .btn:hover {
-            background-color: #3e8e41;
-        }
-
-        label {
-            display: block;
-            font-size: 1.5rem;
-        }
-
-        .staff-form-container form {
-            max-width: 50rem;
-            margin: 0 auto;
-            padding: 2rem;
-            border-radius: .5rem;
-            background-color: rgb(239, 240, 240);
-        }
-
-        .staff-form-container form h1 {
-            text-transform: uppercase;
-            color: black;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .staff-form-container form .box {
-            width: 50%;
-            border-radius: .5rem;
-            padding: 0.8rem 1.2rem;
-            font-size: 1rem;
-            margin: 0.5rem;
-        }
-
-        .package-table {
+        .package-display .package-display-table{
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
+            text-align: center;
         }
 
-        .package-table th, .package-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+        .package-display .package-display-table thead{
+            background-color: rgb(239, 240, 240) ;
         }
 
-        .package-table th {
-            background-color: #f2f2f2;
-            font-size: 1.5rem;
-            text-transform: uppercase;
+        .package-display .package-display-table tr{
+            padding: 1rem;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .update-button{
+            background-color: green;
+        }
+
+        .delete-button{
+            background-color: red;
         }
     </style>
 </head>
@@ -121,7 +79,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="CustViewPack.html">Package</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/CreatePack}">Package</a></li>
                     <li class="nav-item"><a class="nav-link" href="Booking.html">Booking</a></li>
                     <li class="nav-item"><a class="nav-link" href="Account.html">Account</a></li>
                     <li class="nav-item"><a class="nav-link" href="Login.html">Log In</a></li>
@@ -130,34 +88,39 @@
         </div>
     </nav>
     
-    <div class="container">
-        <h1>View Baliescape's Packages</h1>
-        <table class="package-table">
-            <thead>
-                <tr>
-                    <th>Package ID</th>
-                    <th>Package Name</th>
-                    <th>Package Activity</th>
-                    <th>Package Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="package : ${packages}">
-                    <td th:text="${package.packID}">1</td>
-                    <td th:text="${package.packName}">Package Name</td>
-                    <td th:text="${package.packActivity}">Package Activity</td>
-                    <td th:text="${package.packPrice}">100.00</td>
-                    <td>
-                        <a th:href="@{/UpdatePack(packID=${package.packID})}" class="btn">Update</a>
-                        <form th:action="@{/DeletePack}" method="post" style="display:inline;">
-                            <input type="hidden" th:name="packID" th:value="${package.packID}" />
-                            <button type="submit" class="btn">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+        <div class="package-display">
+            <table class="package-display-table">
+                <thead>
+                    <tr>
+                        <td>Package ID</td>
+                        <td>Package Name</td>
+                        <td>Package Activity</td>
+                        <td>Package Price</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="PackageModel : ${packages}">
+                        <td th:text="${PackageModel.packID}"></td>
+                        <td th:text="${PackageModel.packName}"></td>
+                        <td th:text="${PackageModel.packActivity}"></td>
+                        <td th:text="${PackageModel.packPrice}"></td>
+                        <td>
+                        <a th:href="@{/updatePackages?packID=}+${PackageModel.packID}" th:value="${PackageModel.packID}">
+                            <button class="update-button">Edit</button>
+                        </a>
+                        <a th:href="@{/deletePackages?packID=}+${PackageModel.packID}" class ="deletePackageButton">
+                            <button class="delete-button">Delete</button>
+                        </a>
+    
+                        </td>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
     </div>
+
 </body>
 </html>

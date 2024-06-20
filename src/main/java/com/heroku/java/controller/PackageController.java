@@ -3,23 +3,17 @@ package com.heroku.java.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.*;
 import com.heroku.java.model.PackageModel;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class PackageController {
+
     private final DataSource dataSource;
 
     @Autowired
@@ -43,7 +37,7 @@ public class PackageController {
             e.printStackTrace();
             return "redirect:/error";
         }
-        return "redirect:/CreatePack";
+        return "redirect:/CreatePack"; // Redirect to avoid resubmission on refresh
     }
 
     @GetMapping("/packageList")
@@ -67,9 +61,9 @@ public class PackageController {
             model.addAttribute("packages", packages);
         } catch (SQLException e) {
             e.printStackTrace();
-            return "error";
+            return "error"; // Handle error view
         }
-        return "ViewPack";
+        return "ViewPack"; // Render ViewPack.html template
     }
 
     @PostMapping("/UpdatePack")
@@ -88,7 +82,7 @@ public class PackageController {
             e.printStackTrace();
             return "redirect:/error";
         }
-        return "redirect:/CreatePack";
+        return "redirect:/CreatePack"; // Redirect to avoid resubmission on refresh
     }
 
     @PostMapping("/DeletePack")
@@ -103,6 +97,6 @@ public class PackageController {
             e.printStackTrace();
             return "redirect:/error";
         }
-        return "redirect:/CreatePack";
+        return "redirect:/CreatePack"; // Redirect to avoid resubmission on refresh
     }
 }
