@@ -1,99 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Baliescape's Package</title>
-    <link rel="'stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/cc/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        @charset "ISO-8859-1";
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-
-    html{
-        font-size: 62.5%;
-        overflow-x: hidden;
+        
+    body {
+        padding-top: 60px; /* Ensure content doesn't overlap with fixed navbar */
     }
-
-    .container{
-        max-width: 1200px;
-        padding: 2rem;
-        margin: 0 auto;
+    .staff-form-container {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
     }
-    
-    .btn{
-        background-color: #45a049;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 20px; 
+    .package-display {
+        margin-top: 20px;
     }
-
-    .btn:hover {
-        background-color: #45a049;
+    .delete-confirmation {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+        background-color: #f8d7da;
     }
-
-    label {
-        display: block;
-        font-size: 1.5rem;
-    }
-
-    .staff-form-container form{
-        max-width: 50rem;
-        margin: 0 auto;
-        padding: 2rem;
-        border-radius: .5rem;
-        background-color: rgb(239, 240, 240);
-    }
-
-    .staff-form-container form h1{
-        text-transform: uppercase;
-        color: black;
-        margin-bottom: 1rem;
-        text-align: center;
-        font-size: 2rem;
-    }
-
-    .staff-form-container form .box{
-        width: 50%;
-        border-radius: .5rem;
-        padding: 0.8rem 1.2rem;
-        font-size: 1rem;
-        margin: 0.5rem;
-    }
+</style>
 
     </style>
-
 </head>
 <body>
-    
-    <div class="container">
-        <div class="staff-form-container">
-        <form th:action="@{/UpdatePack}"
-        modelAttribute="package"
-        th:object="(${package})"
-        method="post" >
-
-        <h1>Update Baliescape's Package</h1>
-            <label for="packID">Package ID:</label>
-            <input type="text" name="packID" class="box"><br>
-
-            <label for="packName">Package Name:</label>
-            <input type="text" name="packName" class="box"><br>
-
-            <label for="packActivity">Package Activity:</label>
-            <input type="text" name="packActivity" class="box"><br>
-
-            <label for="packPrice">Package Price:</label>
-            <input type="text" name="packPrice" class="box"><br>
-
-            <input type="submit" class="btn" name="update" value="Update">
-            <input type="reset" class="btn" name="cancel" value="Cancel">
-        </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Baliescape Packages</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/createPackage}">Create Package</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/packageList}">View Packages</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+    
+</nav>
 
+<div class="container">
+    <div class="staff-form-container">
+        <form th:action="@{/UpdatePack}" modelAttribute="package" method="post">
+            <h1>Update Baliescape's Package</h1>
+            <label for="packID">Package ID:</label>
+            <input type="text" th:field="*{packID}" class="form-control" readonly><br>
+            <label for="packName">Package Name:</label>
+            <input type="text" th:field="*{packName}" class="form-control"><br>
+            <label for="packActivity">Package Activity:</label>
+            <input type="text" th:field="*{packActivity}" class="form-control"><br>
+            <label for="packPrice">Package Price:</label>
+            <input type="text" th:field="*{packPrice}" class="form-control"><br>
+            <input type="submit" class="btn btn-primary" value="Update">
+            <a th:href="@{/packageList}" class="btn btn-secondary">Cancel</a>
+        </form>
     </div>
+</div>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
