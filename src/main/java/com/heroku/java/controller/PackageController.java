@@ -88,6 +88,32 @@ public class PackageController {
         return "redirect:/CreatePack"; 
     }
 
+    @GetMapping("/updatePackages")
+    public String updatePackages(@RequestParam("packID") Integer packID, Model model) {
+        PackageModel packageModel = new PackageModel();
+        
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "SELECT packid, packname, packactivity, packprice FROM public.package WHERE packid = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, packID);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                packageModel.setPackID(resultSet.getInt("packid"));
+                packageModel.setPackName(resultSet.getString("packname"));
+                packageModel.setPackActivity(resultSet.getString("packactivity"));
+                packageModel.setPackPrice(resultSet.getDouble("packprice"));
+            }
+            
+            model.addAttribute("package", packageModel);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+
+        return "UpdatePack";
+    }
 
 
     @PostMapping("/UpdatePack")
