@@ -113,23 +113,19 @@
     
     <div class="container">
         <div class="staff-form-container">
-            <form th:action="@{/CreatePack}" modelAttribute="package" th:object="(${package})" method="post">
+            <form th:action="@{/CreatePack}" th:object="${package}" method="post">
                 <h1>Create Baliescape's Package</h1>
-                <label for="packID">Package ID:</label>
-                <input type="text" name="packID" class="box"><br>
-                <label for="packName">Package Name:</label>
-                <input type="text" name="packName" class="box"><br>
-                <label for="packActivity">Package Activity:</label>
-                <input type="text" name="packActivity" class="box"><br>
-                <label for="packPrice">Package Price:</label>
-                <input type="text" name="packPrice" class="box"><br>
-                <input type="submit" class="btn" name="create" value="Create">
-                <input type="reset" class="btn" name="reset" value="Reset">
+                <label for="packID">Package ID</label>
+                <input class="box" type="text" id="packID" name="packID" th:field="*{packID}" required>
+                <label for="packName">Package Name</label>
+                <input class="box" type="text" id="packName" name="packName" th:field="*{packName}" required>
+                <label for="packActivity">Package Activity</label>
+                <input class="box" type="text" id="packActivity" name="packActivity" th:field="*{packActivity}" required>
+                <label for="packPrice">Package Price</label>
+                <input class="box" type="text" id="packPrice" name="packPrice" th:field="*{packPrice}" required>
+                <button type="submit" class="btn">Create Package</button>
             </form>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

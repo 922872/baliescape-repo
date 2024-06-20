@@ -1,99 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Baliescape's Package</title>
-    <link rel="'stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/cc/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        @charset "ISO-8859-1";
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+        /* Same styling as CreatePack for consistency */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-    html{
-        font-size: 62.5%;
-        overflow-x: hidden;
-    }
+        html {
+            font-size: 50%;
+            overflow-x: hidden;
+        }
 
-    .container{
-        max-width: 1200px;
-        padding: 2rem;
-        margin: 0 auto;
-    }
-    
-    .btn{
-        background-color: #45a049;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 20px; 
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
 
-    .btn:hover {
-        background-color: #45a049;
-    }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+        }
 
-    label {
-        display: block;
-        font-size: 1.5rem;
-    }
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 20px;
+        }
 
-    .staff-form-container form{
-        max-width: 50rem;
-        margin: 0 auto;
-        padding: 2rem;
-        border-radius: .5rem;
-        background-color: rgb(239, 240, 240);
-    }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 15px;
+        }
 
-    .staff-form-container form h1{
-        text-transform: uppercase;
-        color: black;
-        margin-bottom: 1rem;
-        text-align: center;
-        font-size: 2rem;
-    }
+        .navbar-nav .nav-link:hover {
+            color: #ddd;
+        }
 
-    .staff-form-container form .box{
-        width: 50%;
-        border-radius: .5rem;
-        padding: 0.8rem 1.2rem;
-        font-size: 1rem;
-        margin: 0.5rem;
-    }
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
 
+        .container {
+            max-width: 1200px;
+            padding: 2rem;
+            margin: 0 auto;
+        }
+
+        .btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+
+        label {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .staff-form-container form {
+            max-width: 50rem;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: .5rem;
+            background-color: rgb(239, 240, 240);
+        }
+
+        .staff-form-container form h1 {
+            text-transform: uppercase;
+            color: black;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .staff-form-container form .box {
+            width: 50%;
+            border-radius: .5rem;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
     </style>
-
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">The Baliescape's</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="CustViewPack.html">Package</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Account.html">Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="staff-form-container">
-        <form th:action="@{/DeletePack}"
-        modelAttribute="package"
-        th:object="(${package})"
-        method="post" >
-
-        <h1>Delete Baliescape's Package</h1>
-            <label for="packID">Package ID:</label>
-            <input type="text" name="packID" class="box"><br>
-
-            <label for="packName">Package Name:</label>
-            <input type="text" name="packName" class="box"><br>
-
-            <label for="packActivity">Package Activity:</label>
-            <input type="text" name="packActivity" class="box"><br>
-
-            <label for="packPrice">Package Price:</label>
-            <input type="text" name="packPrice" class="box"><br>
-
-            <input type="submit" class="btn" name="delete" value="Delete">
-            <input type="reset" class="btn" name="cancel" value="Cancel">
-        </form>
+            <form th:action="@{/DeletePack}" method="post">
+                <h1>Delete Baliescape's Package</h1>
+                <label for="packID">Package ID</label>
+                <input class="box" type="text" id="packID" name="packID" th:field="*{packID}" readonly>
+                <label for="packName">Package Name</label>
+                <input class="box" type="text" id="packName" name="packName" th:field="*{packName}" readonly>
+                <label for="packActivity">Package Activity</label>
+                <input class="box" type="text" id="packActivity" name="packActivity" th:field="*{packActivity}" readonly>
+                <label for="packPrice">Package Price</label>
+                <input class="box" type="text" id="packPrice" name="packPrice" th:field="*{packPrice}" readonly>
+                <button type="submit" class="btn">Delete Package</button>
+            </form>
         </div>
-
     </div>
-
 </body>
 </html>
