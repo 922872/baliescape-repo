@@ -66,11 +66,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="packageModel : ${packages}">
-                <td th:text="${packageModel.packID}"></td>
-                <td th:text="${packageModel.packName}"></td>
-                <td th:text="${packageModel.packActivity}"></td>
-                <td th:text="${packageModel.packPrice}"></td>
+            <tr th:each="PackageModel : ${packages}">
+                <td th:text="${PackageModel.packID}"></td>
+                <td th:text="${PackageModel.packName}"></td>
+                <td th:text="${PackageModel.packActivity}"></td>
+                <td th:text="${PackageModel.packPrice}"></td>
                 <td>
                     <a th:href="@{/updatePackages(packID=${packageModel.packID})}">
                         <button class="btn btn-primary">Edit</button>
