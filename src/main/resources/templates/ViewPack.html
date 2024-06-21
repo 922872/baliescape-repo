@@ -66,7 +66,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="packageModel : ${packages}">
+            <tr th:each="packageModel : ${packageList}">
                 <td th:text="${packageModel.packID}"></td>
                 <td th:text="${packageModel.packName}"></td>
                 <td th:text="${packageModel.packActivity}"></td>
