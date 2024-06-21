@@ -6,45 +6,51 @@
     <title>View Baliescape's Packages</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        body {
-            padding-top: 60px; /* Ensure content doesn't overlap with fixed navbar */
-        }
-        .staff-form-container {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .package-display {
-            margin-top: 20px;
-        }
-        .delete-confirmation {
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #dc3545;
-            border-radius: 5px;
-            background-color: #f8d7da;
-        }
+        
+    body {
+        padding-top: 60px; /* Ensure content doesn't overlap with fixed navbar */
+    }
+    .staff-form-container {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    .package-display {
+        margin-top: 20px;
+    }
+    .delete-confirmation {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+        background-color: #f8d7da;
+    }
+</style>
+
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">Baliescape Packages</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/CreatePack}">Create Package</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/packageList}">View Packages</a>
-            </li>
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Baliescape Packages</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/createPackage}">Create Package</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/packageList}">View Packages</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
 </nav>
 
 <div class="container">
@@ -66,10 +72,10 @@
                 <td th:text="${packageModel.packActivity}"></td>
                 <td th:text="${packageModel.packPrice}"></td>
                 <td>
-                    <a th:href="@{/UpdatePack(packID=${packageModel.packID})}">
+                    <a th:href="@{/updatepackage(packID=${packageModel.packID})}">
                         <button class="btn btn-primary">Edit</button>
                     </a>
-                    <a th:href="@{/DeletePack(packID=${packageModel.packID})}">
+                    <a th:href="@{/deletepackage(packID=${packageModel.packID})}">
                         <button class="btn btn-danger">Delete</button>
                     </a>
                 </td>
