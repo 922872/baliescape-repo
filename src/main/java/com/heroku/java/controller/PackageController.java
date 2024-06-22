@@ -45,7 +45,7 @@ public class PackageController {
             return "redirect:/error";
         }
     
-        return "ViewPack";
+        return "redirect:/CreatePack";
     }
      
 

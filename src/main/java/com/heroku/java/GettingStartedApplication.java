@@ -33,6 +33,10 @@ public class GettingStartedApplication {
     public String CreatePack(){
         return "CreatePack";
     }
+    @GetMapping("/ViewPack")
+    public String ViewPack(){
+        return "Pack";
+    }
 
     
     
@@ -83,4 +87,5 @@ String convert(Map<String, Object> model) {
     public static void main(String[] args) {
         SpringApplication.run(GettingStartedApplication.class, args);
     }
+    
 }
