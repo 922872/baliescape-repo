@@ -51,7 +51,7 @@ public class PackageController {
             return "redirect:/error";
         }
     
-        return "redirect:/ViewPack";
+        return "redirect:/CreatePack";
     }
 
     @GetMapping("/packageList")
