@@ -12,11 +12,11 @@ public class PackageModel {
 
     }
 
-    public Integer getPackID() {
+    public int getPackID() {
         return packID;
     }
 
-    public void setPackID(Integer packID) {
+    public void setPackID(int packID) {
         this.packID = packID;
     }
 

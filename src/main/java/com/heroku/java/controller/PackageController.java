@@ -1,10 +1,16 @@
 package com.heroku.java.controller;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,7 +53,40 @@ public class PackageController {
     
         return "redirect:/ViewPack";
     }
-     
+
+    @GetMapping("/packageList")
+    public String packageList(Model model) {
+        List<PackageModel> packages = new ArrayList<>();
+
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "SELECT  packid, packName, packactivity, packprice FROM public.package ORDER BY packid";
+            final var statement = connection.prepareStatement(sql);
+            final var resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Integer packID = resultSet.getInt("packid");
+                String packName = resultSet.getString("packname");
+                String packActivity = resultSet.getString("packactivity");
+                double packPrice = resultSet.getDouble("packprice");
+
+                PackageModel Packages = new PackageModel();
+                Packages.setPackID(packID);
+                Packages.setPackName(packName);
+                Packages.setPackActivity(packActivity);
+                Packages.setPackPrice(packPrice);
+
+                packages.add(Packages);
+            }
+
+            model.addAttribute("PackageModel", packages);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "error";
+        }
+
+        return "redirect:/ViewPack";
+    }
 
     @PostMapping("/UpdatePack")
     public String updatePack(@ModelAttribute("package") PackageModel packages) {
