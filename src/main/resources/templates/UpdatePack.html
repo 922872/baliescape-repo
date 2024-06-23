@@ -70,26 +70,22 @@
     
     <div class="container">
         <div class="staff-form-container">
-        <form th:action="@{/UpdatePack}"
-        modelAttribute="package"
-        th:object="(${package})"
-        method="post" >
+        <form th:action="@{/UpdatePack}" modelAttribute="package" th:object="(${package})"method="post" >
 
         <h1>Update Baliescape's Package</h1>
             <label for="packID">Package ID:</label>
-            <input type="text" name="packID" class="box"><br>
+            <input type="text" name="packID" class="box" th:value ="${package.packID}"><br>
 
             <label for="packName">Package Name:</label>
-            <input type="text" name="packName" class="box"><br>
+            <input type="text" name="packName" class="box" th:value ="${package.packName}"><br>
 
             <label for="packActivity">Package Activity:</label>
-            <input type="text" name="packActivity" class="box"><br>
+            <input type="text" name="packActivity" class="box" th:value ="${package.packActivity}"><br>
 
             <label for="packPrice">Package Price:</label>
-            <input type="text" name="packPrice" class="box"><br>
+            <input type="text" name="packPrice" class="box" th:value ="${package.packPrice}"><br>
 
             <input type="submit" class="btn" name="update" value="Update">
-            <input type="reset" class="btn" name="cancel" value="Cancel">
         </form>
         </div>
 

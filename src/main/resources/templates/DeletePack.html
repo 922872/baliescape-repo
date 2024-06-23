@@ -70,10 +70,7 @@
     
     <div class="container">
         <div class="staff-form-container">
-        <form th:action="@{/DeletePack}"
-        modelAttribute="package"
-        th:object="(${package})"
-        method="post" >
+        <form th:action="@{/DeletePack}" modelAttribute="package" th:object="(${package})" method="post" >
 
         <h1>Delete Baliescape's Package</h1>
             <label for="packID">Package ID:</label>
@@ -89,7 +86,6 @@
             <input type="text" name="packPrice" class="box"><br>
 
             <input type="submit" class="btn" name="delete" value="Delete">
-            <input type="reset" class="btn" name="cancel" value="Cancel">
         </form>
         </div>
 
