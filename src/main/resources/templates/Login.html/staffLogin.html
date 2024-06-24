@@ -358,8 +358,6 @@
         </section>
     </main>
 
-    html
-
 <div class="wrapper" id="loginForm">
     <span class="icon-close" id="closeIcon">
         &times;
@@ -371,8 +369,8 @@
                 <span class="icon">
                     <i class="fas fa-envelope"></i>
                 </span>
-                <input type="email" required>
-                <label>Email</label>
+                <input type="id" required>
+                <label>ID</label>
             </div>
             <div class="input-box">
                 <span class="icon">
@@ -386,11 +384,6 @@
                 <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
             </div>
             <div class="login-options">
-                <label>
-                    <input type="radio" name="login" value="staff" onclick="window.location.href='staffLogin.html';">
-                    Login for <strong>staff</strong>
-                </label>                
-                
             </div>
         </form>
         </form>
@@ -398,6 +391,13 @@
     <div class="form-box register"> <!-- Signup Form - initially hidden -->
         <h2>Sign Up</h2>
         <form action="#">
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fas fa-user"></i>
+                </span>
+                <input type="text" required>
+                <label>ID</label>
+            </div>
             <div class="input-box">
                 <span class="icon">
                     <i class="fas fa-user"></i>
@@ -461,5 +461,3 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-
-
