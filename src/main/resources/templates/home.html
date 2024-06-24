@@ -70,14 +70,6 @@
             text-align: center;
         }
 
-        header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
         .hero {
             position: relative;
@@ -108,12 +100,21 @@
         }
 
         .hero-text .btn {
-            background-color: #000; /* Changed to black */
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            padding: 10px 10px; /* Reduced padding to make the button smaller */
+            text-decoration: none; /* No underline */
+            font-weight: bold; /* Bold text */
+            font-size: 14px; /* Smaller font size */
+            display: inline-block; /* Ensure proper block formatting */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+            margin: 4px 2px;
+            width: 100px
+        }
+
+        /* Optional: Hover effect for better user experience */
+        .hero-text .btn:hover {
+            background-color: #555; /* Slightly lighter black on hover */
         }
 
         footer {
@@ -158,6 +159,7 @@
         .wrapper .form-box {
             width: 100%;
             padding: 40px;
+            background-color: #fff;
         }
 
         .wrapper .form-box.login {
@@ -384,4 +386,5 @@
     </script>
 </body>
 </html>
+
 
