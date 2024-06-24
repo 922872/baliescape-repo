@@ -304,6 +304,23 @@
         .login-register p a:hover {
             text-decoration: underline;
         }
+
+        .centered-login {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .login-options {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .login-options label {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .login-options input {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -341,48 +358,105 @@
         </section>
     </main>
 
-    <div class="wrapper" id="loginForm">
-        <span class="icon-close" id="closeIcon">
-            &times;
-        </span>
-        <div class="form-box login">
-            <h2>Login</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                    <input type="email" required>
-                    <label>Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    <input type="password" required>
-                    <label>Password</label>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <div class="login-register">
-                    <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
-                </div>
-            </form>
-        </div>
+    html
+
+<div class="wrapper" id="loginForm">
+    <span class="icon-close" id="closeIcon">
+        &times;
+    </span>
+    <div class="form-box login"> <!-- Login Form -->
+        <h2>Login</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register">
+                <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
+            </div>
+            <div class="login-options">
+                <label>
+                    <input type="radio" name="login" value="staff" onclick="window.location.href='loginstaff.html';">
+                    Login for <strong>staff</strong>
+                </label>
+            </div>
+        </form>
+        </form>
     </div>
+    <div class="form-box register"> <!-- Signup Form - initially hidden -->
+        <h2>Sign Up</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fas fa-user"></i>
+                </span>
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+                <input type="password" required>
+                <label>Password</label>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="login-register">
+                <p>Already have an account? <a href="#" class="login-link">Log In</a></p>
+            </div>
+            </form>
+        </form>
+    </div>
+</div>
 
     <footer>
         <p>&copy; 2024 TheBaliEscape. All rights reserved.</p>
     </footer>
 
     <script>
-        document.getElementById('loginLink').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('loginForm').classList.add('active-popup');
-        });
 
-        document.getElementById('closeIcon').addEventListener('click', function() {
-            document.getElementById('loginForm').classList.remove('active-popup');
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    var loginForm = document.getElementById('loginForm');
+    var loginLink = document.querySelector('.login-link');
+    var registerLink = document.querySelector('.register-link');
+
+    loginLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        loginForm.classList.remove('active');
+    });
+
+    registerLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        loginForm.classList.add('active');
+    });
+
+    document.getElementById('loginLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        loginForm.classList.add('active-popup');
+    });
+
+    document.getElementById('closeIcon').addEventListener('click', function() {
+        loginForm.classList.remove('active-popup');
+    });
+});
     </script>
 </body>
 </html>
